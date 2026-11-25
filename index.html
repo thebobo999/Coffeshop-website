@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aroma &amp; Bean | Artisan Coffee Shop</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top cafe-navbar shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+        <i class="bi bi-cup-hot-fill text-amber"></i>
+        <span>Aroma &amp; Bean</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+
+        <button
+          class="btn btn-amber d-flex align-items-center gap-2 fw-semibold"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#cartOffcanvas"
+          aria-controls="cartOffcanvas"
+        >
+          <i class="bi bi-bag-check-fill"></i>
+          <span>Pickup Order</span>
+          <span class="badge rounded-pill bg-dark text-white" id="cartCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero-section d-flex align-items-center text-white">
+    <div class="container py-5">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <span class="badge rounded-pill text-bg-warning mb-3 px-3 py-2 fw-semibold">
+            Small-Batch Roasted Daily
+          </span>
+          <h1 class="display-4 fw-bold mb-3">
+            Crafted Espresso &amp; Warm Mornings in Every Cup
+          </h1>
+          <p class="lead text-light opacity-90 mb-4">
+            Sourced directly from sustainable farms, roasted in-house for rich notes of cacao,
+            caramel, and toasted hazelnut. Order ahead for quick cafe pickup or stop by for a seat.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#menu" class="btn btn-amber btn-lg px-4 fw-semibold">
+              Explore Menu
+            </a>
+            <button
+              class="btn btn-outline-light btn-lg px-4"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#cartOffcanvas"
+            >
+              View Order Bag
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card hero-card border-0 shadow-lg text-dark p-4 rounded-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-success-subtle text-success-emphasis px-3 py-2 rounded-pill">
+                <i class="bi bi-circle-fill small me-1"></i> Open Today
+              </span>
+              <small class="text-muted fw-medium">7:00 AM – 8:00 PM</small>
+            </div>
+            <h2 class="h5 fw-bold mb-2">House Favorite Pairing</h2>
+            <p class="text-muted small mb-3">
+              Double Oat Cortado paired with a warm Brown Butter Cardamom Croissant.
+            </p>
+            <div class="d-flex justify-content-between align-items-center border-top pt-3">
+              <div>
+                <span class="d-block small text-muted">Combo Price</span>
+                <strong class="fs-5 text-espresso">$8.50</strong>
+              </div>
+              <button
+                type="button"
+                class="btn btn-sm btn-dark px-3 py-2"
+                id="quickAddComboBtn"
+              >
+                <i class="bi bi-plus-lg me-1"></i> Add Cortado
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-5">
+    <div class="container py-3">
+      <div class="text-center max-w-2xl mx-auto mb-4">
+        <span class="text-uppercase fw-semibold small letter-spacing text-amber-dark">
+          Freshly Prepared
+        </span>
+        <h2 class="display-6 fw-bold mt-1">Our Daily Menu</h2>
+        <p class="text-muted">
+          Filter by category and tap any item to build your pickup order.
+        </p>
+      </div>
+
+      <!-- Category Filter Buttons -->
+      <div class="d-flex justify-content-center flex-wrap gap-2 mb-5" id="categoryFilters" role="group" aria-label="Menu categories">
+        <button type="button" class="btn btn-filter active" data-category="all">All Items</button>
+        <button type="button" class="btn btn-filter" data-category="espresso">Espresso</button>
+        <button type="button" class="btn btn-filter" data-category="cold-brew">Cold Brew</button>
+        <button type="button" class="btn btn-filter" data-category="pastries">Pastries</button>
+      </div>
+
+      <!-- Menu Cards Container -->
+      <div class="row g-4" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5 bg-cream">
+    <div class="container py-3">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <span class="text-uppercase fw-semibold small text-amber-dark">Our Story</span>
+          <h2 class="display-6 fw-bold mt-1 mb-3">Rooted in Craft &amp; Community</h2>
+          <p class="text-muted mb-3">
+            At Aroma &amp; Bean, every roast starts with seasonal single-origin and blended beans
+            selected for clarity, sweetness, and balance. We dial in our espresso every morning and
+            bake pastries in small batches throughout the day.
+          </p>
+          <p class="text-muted mb-4">
+            Whether you are grabbing a brisk morning Americano on your commute or catching up with
+            friends over pour-overs, our space is designed to feel welcoming and unhurried.
+          </p>
+          <div class="row g-3 text-center">
+            <div class="col-4">
+              <div class="p-3 bg-white rounded-3 shadow-sm">
+                <div class="fs-4 fw-bold text-espresso">100%</div>
+                <div class="small text-muted">Specialty Arabica</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="p-3 bg-white rounded-3 shadow-sm">
+                <div class="fs-4 fw-bold text-espresso">18h</div>
+                <div class="small text-muted">Slow Cold Steep</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="p-3 bg-white rounded-3 shadow-sm">
+                <div class="fs-4 fw-bold text-espresso">Daily</div>
+                <div class="small text-muted">Fresh Pastries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <h3 class="h5 fw-bold mb-3"><i class="bi bi-geo-alt-fill text-amber-dark me-2"></i>Visit &amp; Hours</h3>
+            <p class="mb-2"><strong>Address:</strong> 214 Maple Street, Roastery District</p>
+            <p class="mb-3"><strong>Phone:</strong> (555) 234-8910</p>
+            <ul class="list-group list-group-flush small">
+              <li class="list-group-item d-flex justify-content-between px-0">
+                <span>Monday – Friday</span>
+                <span class="fw-semibold">7:00 AM – 8:00 PM</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between px-0">
+                <span>Saturday</span>
+                <span class="fw-semibold">7:30 AM – 9:00 PM</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between px-0">
+                <span>Sunday</span>
+                <span class="fw-semibold">8:00 AM – 6:00 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container py-3">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="text-center mb-4">
+            <span class="text-uppercase fw-semibold small text-amber-dark">Get In Touch</span>
+            <h2 class="display-6 fw-bold mt-1">Questions or Catering?</h2>
+            <p class="text-muted">Send us a note and our team will get back to you promptly.</p>
+          </div>
+
+          <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5">
+            <div id="contactAlertBox" class="d-none" role="alert"></div>
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contactName" class="form-label fw-medium">Your Name</label>
+                  <input type="text" class="form-control" id="contactName" placeholder="Jordan Taylor" required />
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="contactEmail" class="form-label fw-medium">Email Address</label>
+                  <input type="email" class="form-control" id="contactEmail" placeholder="jordan@example.com" required />
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="col-12">
+                  <label for="contactMessage" class="form-label fw-medium">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="contactMessage"
+                    rows="4"
+                    placeholder="Tell us about your event, bean inquiry, or feedback..."
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback">Please write a brief message.</div>
+                </div>
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-amber px-4 py-2 fw-semibold">
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-cup-hot-fill text-amber"></i>
+        <span class="fw-semibold">Aroma &amp; Bean</span>
+      </div>
+      <small class="text-secondary">&copy; <span id="yearSpan"></span> Aroma &amp; Bean Coffee Co. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Pickup Order Offcanvas -->
+  <div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="cartOffcanvas"
+    aria-labelledby="cartOffcanvasLabel"
+  >
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title fw-bold" id="cartOffcanvasLabel">
+        <i class="bi bi-bag-check me-2 text-amber-dark"></i>Your Pickup Order
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+      <div id="cartItemsContainer" class="flex-grow-1 overflow-auto pe-1"></div>
+
+      <div id="cartSummarySection" class="border-top pt-3 mt-3 d-none">
+        <div class="d-flex justify-content-between small text-muted mb-1">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <div class="d-flex justify-content-between small text-muted mb-2">
+          <span>Estimated Tax (8%)</span>
+          <span id="cartTax">$0.00</span>
+        </div>
+        <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
+          <span>Total</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <div class="mb-3">
+          <label for="pickupNameInput" class="form-label small fw-medium mb-1">Pickup Name</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            id="pickupNameInput"
+            placeholder="Name for order ticket"
+          />
+          <div class="invalid-feedback small" id="pickupNameFeedback">
+            Please enter a name for pickup.
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="button" class="btn btn-amber fw-semibold" id="placeOrderBtn">
+            Place Pickup Order
+          </button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" id="clearCartBtn">
+            Clear Bag
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-labelledby="orderSuccessLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 shadow">
+        <div class="modal-body text-center p-4 p-md-5">
+          <div class="display-4 text-success mb-2">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <h4 class="fw-bold mb-2" id="orderSuccessLabel">Order Received!</h4>
+          <p class="text-muted mb-3" id="orderConfirmationText"></p>
+          <button type="button" class="btn btn-dark px-4" data-bs-dismiss="modal">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
