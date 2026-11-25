@@ -1,0 +1,110 @@
+:root {
+  --espresso: #2c1810;
+  --espresso-dark: #1b0e09;
+  --amber: #d9822b;
+  --amber-hover: #bd6d1d;
+  --cream: #faf5ef;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #212529;
+  background-color: #ffffff;
+}
+
+.cafe-navbar {
+  background-color: rgba(27, 14, 9, 0.96);
+  backdrop-filter: blur(6px);
+}
+
+.text-amber {
+  color: var(--amber) !important;
+}
+
+.text-amber-dark {
+  color: #b46212 !important;
+}
+
+.text-espresso {
+  color: var(--espresso) !important;
+}
+
+.bg-cream {
+  background-color: var(--cream);
+}
+
+.btn-amber {
+  background-color: var(--amber);
+  border-color: var(--amber);
+  color: #ffffff;
+}
+
+.btn-amber:hover,
+.btn-amber:focus {
+  background-color: var(--amber-hover);
+  border-color: var(--amber-hover);
+  color: #ffffff;
+}
+
+.hero-section {
+  min-height: 82vh;
+  padding-top: 5.5rem;
+  background:
+    linear-gradient(120deg, rgba(22, 11, 7, 0.88) 0%, rgba(44, 24, 16, 0.76) 55%, rgba(22, 11, 7, 0.85) 100%),
+    url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80")
+    center / cover no-repeat;
+}
+
+.hero-card {
+  background-color: rgba(255, 255, 255, 0.97);
+}
+
+.btn-filter {
+  border: 1px solid #d6c7b8;
+  color: var(--espresso);
+  background-color: #ffffff;
+  border-radius: 999px;
+  padding: 0.45rem 1.15rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-filter:hover {
+  border-color: var(--amber);
+  color: var(--amber-hover);
+}
+
+.btn-filter.active {
+  background-color: var(--espresso);
+  border-color: var(--espresso);
+  color: #ffffff;
+}
+
+.menu-card {
+  border: 1px solid #efe6dc;
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(44, 24, 16, 0.1) !important;
+}
+
+.menu-img-wrap {
+  height: 195px;
+  overflow: hidden;
+  background-color: #f4ece4;
+}
+
+.menu-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
